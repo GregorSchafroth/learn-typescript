@@ -2,18 +2,21 @@ class Person {
   constructor(public firstName: string, public lastName: string) {}
 
   get fullName () {
-    return this.firstName 
+    return this.firstName + ' ' + this.lastName;
   }
 }
 
 class Student extends Person {
-  constructor(public studentId: number, public firstName: string, public lastName: string){
-    super(firstName, lastName);
-  }
-
   takeTest() {
     console.log('Taking a test');
   }
 }
 
-let student = new Student(1, 'Greg', 'greg@gmail.com');
+class Teacher extends Person {
+  override get fullName () {
+    return 'Professor ' + super.fullName;
+  }
+}
+
+let teacher = new Teacher('John', 'Smith');
+console.log(teacher.fullName)
