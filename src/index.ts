@@ -1,32 +1,14 @@
-class Account {
-  nickname?: string;
-
-  constructor(
-    public readonly id: number, 
-    public owner: string, 
-    private _balance: number) {
-  }
-
-  deposit(amount: number): void {
-    if (amount <= 0)
-      throw new Error('Invalid amount')
-    // Record a transaction
-    this._balance += amount;
-  }
-
-  get balance(): number {
-    return this._balance;
-  }
-
-  set balance(value: number) {
-    if (value < 0)
-      throw new Error('Less than zero')
-    this._balance = value
-  }
+class SeatAssignment {
+  // A1, A2 ...
+  // Mosh, John, ...
+  // Index signature property
+  [seatNumber: string]: string;
 }
 
-let account = new Account(1, 'Greg', 0);
-account.deposit(100);
-console.log(account.balance);
-account.balance = 150;
-console.log(account.balance);
+let seats = new SeatAssignment();
+seats.A1 = 'Greg';
+seats.A2 = 'Mosh';
+seats['A3'] = 'David'; 
+// The last row does the same as the two before
+
+console.log(seats)
