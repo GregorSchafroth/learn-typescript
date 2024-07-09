@@ -1,12 +1,13 @@
-type Customer = {
-  birthday?: Date
-};
+let phone1 = document.getElementById('phone') as HTMLInputElement;
+// HTMLElement
+// HTMLInputElement
 
-function getCustomer(id: number): Customer | null | undefined {
-  return id === 0 ? null : {birthday: new Date() };
-}
+phone1.value
 
-let customer = getCustomer(0);
-// Optional property access operator
-  console.log(customer?.birthday?.getFullYear()); 
- 
+// OR
+
+let phone2 = <HTMLInputElement> document.getElementById('phone');
+// HTMLElement
+// HTMLInputElement
+
+phone2.value
