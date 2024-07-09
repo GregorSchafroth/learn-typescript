@@ -1,22 +1,18 @@
-class Person {
-  constructor(public firstName: string, public lastName: string) {}
+abstract class Shape {
+  constructor(public color: string) {}
 
-  get fullName () {
-    return this.firstName + ' ' + this.lastName;
+  abstract render(): void;
+}
+
+class Circle extends Shape {
+  constructor(public radius: number, color: string) {
+    super(color);
+  }
+
+  override render(): void {
+    console.log('Rendering a circle');
   }
 }
 
-class Student extends Person {
-  takeTest() {
-    console.log('Taking a test');
-  }
-}
-
-class Teacher extends Person {
-  override get fullName () {
-    return 'Professor ' + super.fullName;
-  }
-}
-
-let teacher = new Teacher('John', 'Smith');
-console.log(teacher.fullName)
+let shape = new Shape('red');
+shape.render();
