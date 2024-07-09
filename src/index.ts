@@ -14,15 +14,19 @@ class Account {
     this._balance += amount;
   }
 
-  private calculateTax() {
-
+  get balance(): number {
+    return this._balance;
   }
 
-  getBalance(): number {
-    return this._balance;
+  set balance(value: number) {
+    if (value < 0)
+      throw new Error('Less than zero')
+    this._balance = value
   }
 }
 
 let account = new Account(1, 'Greg', 0);
 account.deposit(100);
-console.log(account.getBalance());
+console.log(account.balance);
+account.balance = 150;
+console.log(account.balance);
