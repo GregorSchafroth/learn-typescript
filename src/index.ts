@@ -1,13 +1,10 @@
 class Account {
-  readonly id: number;
-  owner: string;
-  private _balance: number;
   nickname?: string;
 
-  constructor(id: number, owner: string, balance: number) {
-    this.id = id;
-    this.owner = owner;
-    this._balance = balance;
+  constructor(
+    public readonly id: number, 
+    public owner: string, 
+    private _balance: number) {
   }
 
   deposit(amount: number): void {
@@ -29,4 +26,3 @@ class Account {
 let account = new Account(1, 'Greg', 0);
 account.deposit(100);
 console.log(account.getBalance());
-account.calculateTax
