@@ -1,7 +1,17 @@
 "use strict";
-function getCustomer(id) {
-    return id === 0 ? null : { birthday: new Date() };
+class Account {
+    constructor(id, owner, balance) {
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+    }
+    deposit(amount) {
+        if (amount <= 0)
+            throw new Error('Invalid amount');
+        this.balance += amount;
+    }
 }
-let customer = getCustomer(1);
-console.log(customer === null || customer === void 0 ? void 0 : customer.birthday);
+let account = new Account(1, 'Greg', 0);
+account.deposit(100);
+console.log(typeof (account));
 //# sourceMappingURL=index.js.map
